@@ -1,0 +1,17 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.main-wrapper {
+}
+
+@include breakpoint(desktop) {
+  :root {
+    font-size: 100px;
+  }
+}
+
+@include breakpoint(mobile) {
+  :root {
+    font-size: 36px;
+  }
+}

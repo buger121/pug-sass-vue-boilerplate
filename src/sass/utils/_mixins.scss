@@ -1,0 +1,54 @@
+//绝对定位
+@mixin abs-position($top, $right, $bottom, $left) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+//fixed定位
+@mixin fix-position($top, $right, $bottom, $left) {
+    position: fixed;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+//设置图片背景
+@mixin img-bg($width, $height, $href) {
+    width: $width;
+    height: $height;
+    background: url($href) no-repeat center/100% 100%;
+}
+
+//文本水平垂直居中
+@mixin text-center($width, $height) {
+    display: block;
+    width: $width;
+    height: $height;
+    text-align: center;
+    line-height: $height;
+}
+
+//媒体查询
+@mixin breakpoint($point) {
+    @if $point == large {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    } @else if $point == desktop {
+        @media only screen and (min-width: 900px) {
+            @content;
+        }
+    } @else if $point == tablet {
+        @media only screen and (min-width: 768px) and (max-width: 900px) {
+            @content;
+        }
+    } @else if $point == mobile {
+        @media only screen and (min-width: 300px) and (max-width: 900px) {
+            @content;
+        }
+    }
+}

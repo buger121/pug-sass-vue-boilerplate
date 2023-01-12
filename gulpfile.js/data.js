@@ -1,16 +1,15 @@
 //数据抽离：将json数据合并写到data目录下的data.json文件中
 
-const { series } = require('gulp');
-const gulp = require('gulp'),
+const { series } = require('gulp'),
+    gulp = require('gulp'),
     fs = require('fs'),
     path = require('path'),
     merge = require('gulp-merge-json'),
-    clean = require('gulp-clean'),
-    gulpPath = require('./path'),
-    template = require('gulp-template');
+    gulpPath = require('./path')
 
-const cleanTask = () => {
-    return gulp.src('src/data/data.json', { read: false }).pipe(clean());
+//先重置data.json文件
+const resetTask = async () => {
+    fs.writeFileSync('./src/data/data.json', '{}');
 };
 
 const dataTask = () => {
@@ -39,4 +38,4 @@ const dataTask = () => {
         .pipe(gulp.dest('dist/data'));
 };
 
-exports.dataTask = series(cleanTask, dataTask);
+exports.dataTask = series(resetTask, dataTask);

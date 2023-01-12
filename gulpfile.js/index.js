@@ -36,7 +36,7 @@ const watchTask = (done) => {
     watch([path.src.js, '!src/js/bundle**'], series(rollupTask, jsTask));
     watch(path.src.assets, series(resetAssets, copyFile));
     watch(path.src.vendor, copyFile);
-    watch([path.src.data, '!src/data/data.json'], series(dataTask, pugTask));
+    watch(path.src.data, series(dataTask, pugTask));
 
     done();
 };

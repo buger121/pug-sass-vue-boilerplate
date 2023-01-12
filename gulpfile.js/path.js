@@ -8,7 +8,7 @@ module.exports = {
 			img: "src/assets/images/**",
 			assets: "src/assets/**",
 			icon: "src/*.ico",
-			data: "src/data/*.json",
+			data: ["src/data/*.json", "!" + "src/data/data.json"],
 	},
 	dist: {
 			pug: "dist",

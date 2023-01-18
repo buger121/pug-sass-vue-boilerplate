@@ -1,8 +1,16 @@
-import Vue from "vue"
+import Vue from 'vue'
+import i18n from './base/lang'
 
-new Vue({
+
+
+const app = new Vue({
 	el: '#app',
-	mounted(){
-		console.log('mounted')
-	}
+	i18n,
+	data(){
+		return {
+			myInput: ''
+		}
+	},
 })
+
+export default app

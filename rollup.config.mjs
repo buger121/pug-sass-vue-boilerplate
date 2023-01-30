@@ -9,19 +9,22 @@ export default {
     input: 'src/js/index.js',
     output: {
         file: 'src/js/bundle.js',
-        format: 'cjs',
+        format: 'iife',
+        name: 'myModule',
         sourcemap: true,
     },
     external: [
-        // node_modules
+        // /node_modules/ 
+        'vue',
+        'vue-i18n'
     ],
-    globals: {
-        'Vue': 'Vue',
-        'VueI18n': 'Vue-i18n'
-    },
     plugins: [
-        nodeResolve(), 
-        commonjs(),
+        nodeResolve({
+            moduleDirectories: ['node_modules']
+        }), 
+        commonjs({
+            include: 'node_modules/**'
+        }),
         css(),
         json(),
         replace({
